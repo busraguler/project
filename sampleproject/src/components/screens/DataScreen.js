@@ -176,7 +176,6 @@ class DataScreen extends Component {
                 <Text style={styles.modalText}>{item}</Text>
                </View>
                <View
-                 key={key}
                  style={{
                    flex: 1,
                    alignItems: 'flex-end'
@@ -249,7 +248,7 @@ class DataScreen extends Component {
     )
   }
 
-   onShare = async () => {
+  onShare = async () => {
     var string = this.submitForm();
       try {
         if(string){
