@@ -270,27 +270,6 @@ class DataScreen extends Component {
   };
 
   render() {
-    const onShare = async () => {
-      var string = this.submitForm();
-        try {
-          if(string){
-            const result = await Share.share({
-              message: string
-            });
-            if (result.action === Share.sharedAction) {
-              if (result.activityType) {
-
-              } else {
-              this.reset();
-              }
-            } else if (result.action === Share.dismissedAction) {
-
-            }
-          }
-        } catch (error) {
-          alert(error.message);
-        }
-    };
     return(
       <SafeAreaView style={{ flex: 1, backgroundColor:'#fff' }}>
         <View style={{ flex: 1, backgroundColor:'#fdfeff' }}>
