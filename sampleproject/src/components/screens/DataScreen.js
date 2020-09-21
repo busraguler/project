@@ -14,7 +14,7 @@ class DataScreen extends Component {
     super(props)
     this.state = {
       data:[],
-      inputValue:[],
+
       isVisible: false,
       option: [],
       targetIndex: 0,
@@ -35,7 +35,7 @@ class DataScreen extends Component {
     this.props.data.controls.map((item,key)=>{
       this.setState({ ['input-'+key]: [] });
     })
-    this.setState({ inputValue: [] });
+
     this.setState({ multiple: '' });
     this.setState({ string: '' });
   }
@@ -249,6 +249,28 @@ class DataScreen extends Component {
     )
   }
 
+   onShare = async () => {
+    var string = this.submitForm();
+      try {
+        if(string){
+          const result = await Share.share({
+            message: string
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+
+            } else {
+            this.reset();
+            }
+          } else if (result.action === Share.dismissedAction) {
+
+          }
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+  };
+
   render() {
     const onShare = async () => {
       var string = this.submitForm();
@@ -292,7 +314,7 @@ class DataScreen extends Component {
               <ScrollView>
                 {this.getForm()}
                 <Button
-                  onPress={onShare}
+                  onPress={this.onShare}
                   backgroundColor={'#36446f'}
                   borderRadius={3}
                   size={'small'}
