@@ -85,7 +85,6 @@ class Pickerselect extends Component {
         </Modal>
 
       </View>
-
     );
   }
 }
