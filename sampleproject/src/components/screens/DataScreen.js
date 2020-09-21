@@ -14,7 +14,6 @@ class DataScreen extends Component {
     super(props)
     this.state = {
       data:[],
-
       isVisible: false,
       option: [],
       targetIndex: 0,
